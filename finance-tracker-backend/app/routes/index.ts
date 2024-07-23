@@ -1,2 +1,2 @@
-import baseRoute from "./baseRoute.routes";
+import baseRoute from "./baseRoute";
 export { baseRoute };

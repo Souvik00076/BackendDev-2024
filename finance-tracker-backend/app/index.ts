@@ -1,9 +1,8 @@
 import express from "express";
-import { BASE_URI } from "./app/config/routes";
-import { connectDb } from "./app/config/database";
-import { baseRoute } from "./app/routes/index";
+import { BASE_URI, connectDb } from "./app/config";
+import { baseRoute } from "./app/routes";
 import dotenv from "dotenv";
-dotenv.configDotenv();
+dotenv.config();
 const app = express();
 app.use(BASE_URI, baseRoute);
 const startServer = async () => {
@@ -17,4 +16,5 @@ const startServer = async () => {
     console.log(error);
   }
 };
+
 startServer();

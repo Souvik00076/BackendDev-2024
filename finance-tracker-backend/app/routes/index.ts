@@ -1,4 +1,2 @@
-import baseRoute from './baseRoute.index'
-export {
-  baseRoute
-}
+import baseRoute from "./baseRoute.routes";
+export { baseRoute };

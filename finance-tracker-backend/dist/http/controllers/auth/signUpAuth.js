@@ -7,8 +7,10 @@ var __importDefault =
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.signUpAuth = void 0;
 const User_1 = __importDefault(require("../../models/User"));
+const utils_1 = require("../../../utils");
 const signUpAuth = async ({ body: { email, password, userName } }, res) => {
   try {
+    console.log("email");
     if (!email) {
       throw new Error("Email Not Found");
     }
@@ -23,6 +25,9 @@ const signUpAuth = async ({ body: { email, password, userName } }, res) => {
       email,
       password,
     });
-  } catch (error) {}
+    (0, utils_1.sendSuccessResponse)(res, "AUTH OK");
+  } catch (error) {
+    (0, utils_1.sendErrorResponse)(res, "Something error happened");
+  }
 };
 exports.signUpAuth = signUpAuth;

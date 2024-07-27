@@ -4,6 +4,7 @@ import { baseRoute } from "./routes";
 import dotenv from "dotenv";
 dotenv.config();
 const app = express();
+app.use(express.json());
 app.use(BASE_URI, baseRoute);
 const startServer = async () => {
   try {

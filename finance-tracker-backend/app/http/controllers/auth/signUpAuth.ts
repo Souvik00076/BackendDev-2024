@@ -6,6 +6,7 @@ export const signUpAuth = async (
   res: Response,
 ) => {
   try {
+    console.log("email");
     if (!email) {
       throw new Error("Email Not Found");
     }
@@ -21,7 +22,6 @@ export const signUpAuth = async (
       email,
       password,
     });
-
     sendSuccessResponse(res, "AUTH OK");
   } catch (error) {
     sendErrorResponse(res, "Something error happened");

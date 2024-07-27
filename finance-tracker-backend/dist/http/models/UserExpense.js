@@ -43,50 +43,43 @@ var __importStar =
     __setModuleDefault(result, mod);
     return result;
   };
-var __importDefault =
-  (this && this.__importDefault) ||
-  function (mod) {
-    return mod && mod.__esModule ? mod : { default: mod };
-  };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
-const bcryptjs_1 = __importDefault(require("bcryptjs"));
-const userSchema = new mongoose_1.Schema(
+const userExpenseSchema = new mongoose_1.Schema(
   {
-    userName: {
-      type: String,
-      required: [true, "User name cannot be empty"],
+    userId: {
+      type: mongoose_1.Schema.Types.ObjectId,
+      ref: "user",
+      required: [true, "User ID cannot be empty"],
     },
-    email: {
+    month: {
       type: String,
-      required: [true, "Email cannot be empty"],
+      enum: [
+        "JANUARY",
+        "FEBRUARY",
+        "MARCH",
+        "APRIL",
+        "MAY",
+        "JUNE",
+        "JULY",
+        "AUGUST",
+        "SEPTEMBER",
+        "OCTOBER",
+        "NOVEMBER",
+        "DECEMBER",
+      ],
+      required: [true, "Month cannot be empty"],
     },
-    password: {
-      type: String,
-      required: [true, "Password cannot be empty"],
+    totalIncome: {
+      type: Number,
+      default: 0,
     },
-    profilePhoto: {
-      type: String,
-      default: "",
-    },
-    isVerified: {
-      type: Boolean,
-      default: false,
+    totalExpense: {
+      type: Number,
+      default: 0,
     },
   },
   { timestamps: true },
 );
-userSchema.pre("save", async function (next) {
-  console.log(this.userName + " " + this.email);
-  if (this.isModified("password")) {
-    const salt = await bcryptjs_1.default.genSalt(10); // Adjust salt rounds as needed
-    this.password = await bcryptjs_1.default.hash(this.password, salt);
-  }
-  next();
-});
-userSchema.methods.match = async function (creadential) {
-  const isMatch = await bcryptjs_1.default.compare(creadential, this.password);
-  return isMatch;
-};
-const User = mongoose_1.default.model("user", userSchema);
-exports.default = User;
+const Expense = mongoose_1.default.model("userexpense", userExpenseSchema);
+exports.default = Expense;

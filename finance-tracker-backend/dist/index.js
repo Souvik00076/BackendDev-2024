@@ -11,6 +11,7 @@ const routes_1 = require("./routes");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
+app.use(express_1.default.json());
 app.use(config_1.BASE_URI, routes_1.baseRoute);
 const startServer = async () => {
   try {

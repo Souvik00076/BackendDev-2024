@@ -1,6 +1,6 @@
 import express from "express";
-import { BASE_URI, connectDb } from "./app/config";
-import { baseRoute } from "./app/routes";
+import { BASE_URI, connectDb } from "./config";
+import { baseRoute } from "./routes";
 import dotenv from "dotenv";
 dotenv.config();
 const app = express();

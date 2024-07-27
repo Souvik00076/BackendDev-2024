@@ -7,4 +7,5 @@ export interface IUser extends Document {
   profilePhoto: string;
   isVerified: boolean;
   createdAt: Date;
+  match: (cred: string) => Promise<boolean>;
 }

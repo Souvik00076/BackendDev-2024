@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import User from "../../models/User";
+import { sendSuccessResponse, sendErrorResponse } from "../../../utils";
 export const signUpAuth = async (
   { body: { email, password, userName } }: Request,
   res: Response,
@@ -20,5 +21,9 @@ export const signUpAuth = async (
       email,
       password,
     });
-  } catch (error) {}
+
+    sendSuccessResponse(res, "AUTH OK");
+  } catch (error) {
+    sendErrorResponse(res, "Something error happened");
+  }
 };

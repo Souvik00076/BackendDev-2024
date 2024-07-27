@@ -8,9 +8,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const config_1 = require("./config");
 const routes_1 = require("./routes");
+const cors_1 = __importDefault(require("cors"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
+app.use((0, cors_1.default)({ origin: "http://localhost:5174" }));
 app.use(express_1.default.json());
 app.use(config_1.BASE_URI, routes_1.baseRoute);
 const startServer = async () => {

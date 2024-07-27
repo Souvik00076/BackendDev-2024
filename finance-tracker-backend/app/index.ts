@@ -1,9 +1,11 @@
 import express from "express";
 import { BASE_URI, connectDb } from "./config";
 import { baseRoute } from "./routes";
+import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 const app = express();
+app.use(cors({ origin: "http://localhost:5174" }));
 app.use(express.json());
 app.use(BASE_URI, baseRoute);
 const startServer = async () => {

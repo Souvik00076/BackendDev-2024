@@ -33,6 +33,6 @@ export const signUpAuth = async (
     });
     sendSuccessResponse(res, "AUTH OK");
   } catch (error) {
-    sendErrorResponse(res, "Something error happened");
+    sendErrorResponse(res, error as Error);
   }
 };

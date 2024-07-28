@@ -1,4 +1,4 @@
 import { sendSuccessResponse } from "./sendSuccessResponse";
 import { sendErrorResponse } from "./sendErrorResponse";
-
-export { sendSuccessResponse, sendErrorResponse };
+import { getCurrentMonth } from "./getCurrentMonth";
+export { sendSuccessResponse, sendErrorResponse, getCurrentMonth };

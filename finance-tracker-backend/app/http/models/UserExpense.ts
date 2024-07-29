@@ -35,6 +35,10 @@ const userExpenseSchema = new Schema<IUserExpense>(
       type: Number,
       default: 0,
     },
+    currentBalance: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true },
 );

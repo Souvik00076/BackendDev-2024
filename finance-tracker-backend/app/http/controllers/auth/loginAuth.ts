@@ -16,7 +16,9 @@ export const loginAuth = async (
     if (!isMatch) {
       throw new Error("Invalid password");
     }
-    sendSuccessResponse(res, "LOGIN OK");
+    sendSuccessResponse(res, "LOGIN OK", {
+      id: user._id,
+    });
   } catch (error) {
     sendErrorResponse(res, error as Error);
   }

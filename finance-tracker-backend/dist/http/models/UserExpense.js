@@ -78,6 +78,10 @@ const userExpenseSchema = new mongoose_1.Schema(
       type: Number,
       default: 0,
     },
+    currentBalance: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true },
 );

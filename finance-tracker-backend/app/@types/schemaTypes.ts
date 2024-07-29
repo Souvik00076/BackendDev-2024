@@ -18,6 +18,7 @@ export interface IUserExpense extends Document {
   month: string;
   totalIncome: number;
   totalExpense: number;
+  currentBalance: number;
 }
 
 export interface ITransactions extends Document {

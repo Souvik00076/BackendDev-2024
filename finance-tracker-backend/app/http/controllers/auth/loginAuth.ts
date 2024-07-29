@@ -18,6 +18,6 @@ export const loginAuth = async (
     }
     sendSuccessResponse(res, "LOGIN OK");
   } catch (error) {
-    sendErrorResponse(res, error);
+    sendErrorResponse(res, error as Error);
   }
 };
